@@ -12,6 +12,14 @@ export default function Home() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<DatasetCategory | 'all'>('all');
   const [selectedSource, setSelectedSource] = useState<DatasetSource | 'all'>('all');
+  const [selectedTag, setSelectedTag] = useState<string>('');
+
+  // Get all unique tags from datasets
+  const availableTags = useMemo(() => {
+    const allTags = datasets.flatMap(dataset => dataset.tags);
+    const uniqueTags = Array.from(new Set(allTags)).sort();
+    return uniqueTags;
+  }, []);
 
   const filteredDatasets = useMemo(() => {
     return datasets.filter((dataset) => {
@@ -22,10 +30,11 @@ export default function Home() {
       
       const matchesCategory = selectedCategory === 'all' || dataset.category === selectedCategory;
       const matchesSource = selectedSource === 'all' || dataset.source === selectedSource;
+      const matchesTag = !selectedTag || dataset.tags.includes(selectedTag);
       
-      return matchesSearch && matchesCategory && matchesSource;
+      return matchesSearch && matchesCategory && matchesSource && matchesTag;
     });
-  }, [searchTerm, selectedCategory, selectedSource]);
+  }, [searchTerm, selectedCategory, selectedSource, selectedTag]);
 
   const handleOpenWithJulius = (dataset: Dataset) => {
     // Simulate opening with Julius.ai
@@ -74,24 +83,20 @@ export default function Home() {
       <div className="bg-white">
         <div className="container py-20 text-center animate-fade-in-up">
           <h1 className="text-heading-1 mb-6 max-w-4xl mx-auto">
-            Discover datasets that work for you
+            Discover New Datasets
           </h1>
           <p className="text-body-large mb-12 max-w-2xl mx-auto">
             Explore real-world datasets from Kaggle, Tidy Tuesday, and more. 
             Connect your data, ask questions in plain English, and get insights in seconds.
           </p>
-          <div className="flex justify-center items-center space-x-8 text-small mb-16">
+          <div className="flex justify-center items-center space-x-12 text-small mb-16">
             <div className="text-center">
               <div className="text-heading-2 text-foreground">{datasets.length}</div>
               <div className="text-muted-foreground">Curated Datasets</div>
             </div>
             <div className="text-center">
               <div className="text-heading-2 text-foreground">{Object.keys(categoryStats).length}</div>
-              <div className="text-muted-foreground">Business Categories</div>
-            </div>
-            <div className="text-center">
-              <div className="text-heading-2 text-foreground">Real-World</div>
-              <div className="text-muted-foreground">Business Applications</div>
+              <div className="text-muted-foreground">Categories</div>
             </div>
           </div>
         </div>
@@ -107,10 +112,13 @@ export default function Home() {
             onCategoryChange={setSelectedCategory}
             selectedSource={selectedSource}
             onSourceChange={setSelectedSource}
+            selectedTag={selectedTag}
+            onTagChange={setSelectedTag}
+            availableTags={availableTags}
           />
 
           {/* Results Summary */}
-          <div className="mb-8">
+          <div className="mb-6">
             <p className="text-body">
               Showing <span className="font-semibold" style={{ color: 'rgb(var(--foreground))' }}>{filteredDatasets.length}</span> 
               {filteredDatasets.length === 1 ? ' dataset' : ' datasets'}
@@ -119,12 +127,17 @@ export default function Home() {
                   {' '}matching "<span className="font-semibold" style={{ color: 'rgb(var(--primary))' }}>{searchTerm}</span>"
                 </span>
               )}
+              {selectedTag && (
+                <span>
+                  {' '}with tag "<span className="font-semibold" style={{ color: 'rgb(var(--primary))' }}>{selectedTag}</span>"
+                </span>
+              )}
             </p>
           </div>
 
           {/* Dataset Grid */}
           {filteredDatasets.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-4 gap-6">
               {filteredDatasets.map((dataset) => (
                 <DatasetCard
                   key={dataset.id}
