@@ -1,6 +1,54 @@
-# Julius Datasets Prototype
+# Julius AI Dataset Prototype
 
-A feature prototype for Julius.ai that showcases real-world datasets from various sources including Kaggle, Tidy Tuesday, and other public repositories.
+A Next.js application showcasing various datasets from Kaggle, Tidy Tuesday, and other public sources, organized by business application categories.
+
+## 🚀 Live Demo
+
+The application is deployed on GitHub Pages: [https://rahulgh-stack.github.io/julius-dataset-prototype/](https://rahulgh-stack.github.io/julius-dataset-prototype/)
+
+## �️ Development
+
+```bash
+# Install dependencies
+npm install
+
+# Run development server
+npm run dev
+
+# Build for production
+npm run build
+```
+
+Open [http://localhost:3000](http://localhost:3000) to view the application locally.
+
+## �📦 Deployment
+
+This project is automatically deployed to GitHub Pages using GitHub Actions whenever changes are pushed to the main branch.
+
+### Setting up GitHub Pages (One-time setup)
+
+1. Go to your repository settings: https://github.com/rahulgh-stack/julius-dataset-prototype/settings
+2. Navigate to "Pages" in the left sidebar
+3. Under "Source", select "GitHub Actions"
+4. The deployment workflow will automatically run on every push to main
+
+### Manual Deployment
+
+If you need to deploy manually:
+
+```bash
+npm run build
+```
+
+The built files will be in the `out/` directory, ready for static hosting.
+
+## 🎯 Features
+
+- Dataset discovery and browsing
+- Filtering by category and source
+- Responsive design with Tailwind CSS
+- Static site generation for optimal performance
+- Real-world business applications focus
 
 ## Features
 
