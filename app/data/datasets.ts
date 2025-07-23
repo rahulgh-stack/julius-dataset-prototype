@@ -1,0 +1,152 @@
+import { Dataset } from '../types';
+
+export const datasets: Dataset[] = [
+  {
+    id: 'credit-fraud',
+    name: 'Credit Card Fraud Detection',
+    description: 'Real financial transactions data with labeled fraud cases. Perfect for building fraud detection algorithms.',
+    category: 'finance',
+    source: 'kaggle',
+    url: 'https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud',
+    records: 284807,
+    features: 31,
+    fileSize: '150MB',
+    tags: ['fraud detection', 'classification', 'imbalanced data'],
+    businessApplications: ['Risk assessment', 'Fraud prevention', 'Banking security', 'Payment processing']
+  },
+  {
+    id: 'customer-segmentation',
+    name: 'Mall Customer Segmentation',
+    description: 'Customer data including demographics and spending scores for market segmentation analysis.',
+    category: 'customers',
+    source: 'kaggle',
+    url: 'https://www.kaggle.com/datasets/vjchoudhary7/customer-segmentation-tutorial-in-python',
+    records: 200,
+    features: 5,
+    fileSize: '5KB',
+    tags: ['clustering', 'segmentation', 'demographics'],
+    businessApplications: ['Customer targeting', 'Marketing campaigns', 'Product positioning', 'Retail strategy']
+  },
+  {
+    id: 'retail-sales',
+    name: 'Retail Sales Dataset',
+    description: 'Comprehensive retail transaction data with customer profiles and seasonal trends.',
+    category: 'retail',
+    source: 'kaggle',
+    url: 'https://www.kaggle.com/datasets/mohammadtalib786/retail-sales-dataset',
+    records: 1000,
+    features: 8,
+    fileSize: '85KB',
+    tags: ['sales forecasting', 'time series', 'customer behavior'],
+    businessApplications: ['Sales prediction', 'Inventory management', 'Customer analytics', 'Seasonal planning']
+  },
+  {
+    id: 'housing-prices',
+    name: 'House Prices - Advanced Regression',
+    description: 'Comprehensive housing data with 79 explanatory variables for price prediction.',
+    category: 'finance',
+    source: 'kaggle',
+    url: 'https://www.kaggle.com/competitions/house-prices-advanced-regression-techniques',
+    records: 1459,
+    features: 79,
+    fileSize: '460KB',
+    tags: ['regression', 'feature engineering', 'real estate'],
+    businessApplications: ['Property valuation', 'Real estate investment', 'Market analysis', 'Risk assessment']
+  },
+  {
+    id: 'ecommerce-sales',
+    name: 'E-Commerce Sales Dataset',
+    description: 'Online retail transactions data for analyzing digital commerce patterns and customer behavior.',
+    category: 'retail',
+    source: 'kaggle',
+    records: 5000,
+    features: 12,
+    fileSize: '2.1MB',
+    tags: ['e-commerce', 'digital marketing', 'conversion analysis'],
+    businessApplications: ['Online optimization', 'Customer journey analysis', 'Digital marketing ROI', 'Conversion optimization']
+  },
+  {
+    id: 'healthcare-diabetes',
+    name: 'Diabetes Health Indicators',
+    description: 'Health survey data for predicting diabetes risk based on lifestyle and demographic factors.',
+    category: 'health',
+    source: 'kaggle',
+    records: 253680,
+    features: 22,
+    fileSize: '35MB',
+    tags: ['healthcare', 'prevention', 'risk prediction'],
+    businessApplications: ['Health risk assessment', 'Insurance underwriting', 'Preventive care', 'Population health management']
+  },
+  {
+    id: 'manufacturing-failures',
+    name: 'Manufacturing Process Failures',
+    description: 'Industrial sensor data for predicting equipment failures and optimizing maintenance schedules.',
+    category: 'manufacturing',
+    source: 'kaggle',
+    records: 10000,
+    features: 15,
+    fileSize: '4.2MB',
+    tags: ['predictive maintenance', 'IoT', 'anomaly detection'],
+    businessApplications: ['Predictive maintenance', 'Quality control', 'Cost reduction', 'Operational efficiency']
+  },
+  {
+    id: 'big-tech-stocks',
+    name: 'Big Tech Stock Prices',
+    description: 'Historical stock price data for major technology companies including Apple, Google, Microsoft, and more.',
+    category: 'finance',
+    source: 'tidytuesday',
+    records: 45000,
+    features: 8,
+    fileSize: '3.8MB',
+    tags: ['time series', 'financial markets', 'volatility analysis'],
+    businessApplications: ['Investment analysis', 'Portfolio optimization', 'Risk management', 'Market research']
+  },
+  {
+    id: 'energy-consumption',
+    name: 'European Energy Data',
+    description: 'Comprehensive energy consumption and production data across European countries.',
+    category: 'environment',
+    source: 'tidytuesday',
+    records: 15000,
+    features: 10,
+    fileSize: '1.9MB',
+    tags: ['sustainability', 'energy efficiency', 'environmental'],
+    businessApplications: ['Energy planning', 'Sustainability reporting', 'Policy analysis', 'Carbon footprint tracking']
+  },
+  {
+    id: 'government-grants',
+    name: 'US Government Grant Opportunities',
+    description: 'Federal grant data including funding amounts, eligibility criteria, and award outcomes.',
+    category: 'government',
+    source: 'tidytuesday',
+    records: 8500,
+    features: 20,
+    fileSize: '12MB',
+    tags: ['public funding', 'grant analysis', 'government data'],
+    businessApplications: ['Grant strategy', 'Funding opportunities', 'Compliance analysis', 'Public sector insights']
+  },
+  {
+    id: 'student-performance',
+    name: 'Student Performance Dataset',
+    description: 'Educational data tracking student achievements across multiple subjects and demographic factors.',
+    category: 'education',
+    source: 'uci',
+    records: 649,
+    features: 33,
+    fileSize: '95KB',
+    tags: ['education analytics', 'performance prediction', 'academic success'],
+    businessApplications: ['Educational assessment', 'Student success prediction', 'Resource allocation', 'Intervention planning']
+  },
+  {
+    id: 'supply-chain',
+    name: 'Supply Chain Analytics',
+    description: 'Global supply chain data including shipping costs, delivery times, and supplier performance metrics.',
+    category: 'manufacturing',
+    source: 'kaggle',
+    records: 25000,
+    features: 18,
+    fileSize: '8.7MB',
+    tags: ['logistics', 'supply chain optimization', 'cost analysis'],
+    businessApplications: ['Logistics optimization', 'Vendor management', 'Cost reduction', 'Delivery performance']
+  }
+];
